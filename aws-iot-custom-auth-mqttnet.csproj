@@ -11,6 +11,7 @@
     <RootNamespace>aws_iot_custom_auth_mqttnet</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <DefaultItemExcludes>$(DefaultItemExcludes);MQTTnet/**</DefaultItemExcludes>
   </PropertyGroup>
 
 </Project>
