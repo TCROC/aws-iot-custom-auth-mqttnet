@@ -19,14 +19,14 @@ string transportImplementation = args[i++]; // websocket4net | dotnet
 string transport = args[i++]; // websocket | tcp
 
 Console.WriteLine($"{Environment.NewLine}==================={Environment.NewLine}");
-Console.WriteLine($"Args Used:{Environment.NewLine}");
-Console.WriteLine($"{nameof(username)}: {username}");
-Console.WriteLine($"{nameof(password)}: {password}");
-Console.WriteLine($"{nameof(endpoint)}: {endpoint}");
-Console.WriteLine($"{nameof(rootTopic)}: {rootTopic}");
-Console.WriteLine($"{nameof(authorizer)}: {authorizer}");
-Console.WriteLine($"{nameof(transportImplementation)}: {transportImplementation}");
-Console.WriteLine($"{nameof(transport)}: {transport}");
+Console.WriteLine($"Args Used{Environment.NewLine}");
+Console.WriteLine($"{nameof(username)}:                  {username}");
+Console.WriteLine($"{nameof(password)}:                  {password}");
+Console.WriteLine($"{nameof(endpoint)}:                  {endpoint}");
+Console.WriteLine($"{nameof(rootTopic)}:                 {rootTopic}");
+Console.WriteLine($"{nameof(authorizer)}:                {authorizer}");
+Console.WriteLine($"{nameof(transportImplementation)}:   {transportImplementation}");
+Console.WriteLine($"{nameof(transport)}:                 {transport}");
 Console.WriteLine($"{Environment.NewLine}==================={Environment.NewLine}");
 
 var factory = new MqttFactory();
