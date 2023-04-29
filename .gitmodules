@@ -1,3 +1,3 @@
 [submodule "MQTTnet"]
 	path = MQTTnet
-	url = https://github.com/TCROC/MQTTnet.git
+	url = https://github.com/dotnet/MQTTnet
