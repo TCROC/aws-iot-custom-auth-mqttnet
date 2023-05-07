@@ -94,6 +94,7 @@ var options = optionsBuilder
     .WithWillQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
     .WithProtocolVersion(MqttProtocolVersion.V500)
     .WithKeepAlivePeriod(TimeSpan.FromSeconds(35))
+    .WithoutPacketFragmentation()
     .Build();
 
 var logger = new MqttNetEventLogger("MqttNet");
