@@ -65,8 +65,13 @@ if (authType == "lambda")
 else if (authType == "cert")
 {
     var caCrtKey = authorizer.Split(",");
-    var caCert = X509Certificate2.CreateFromPem(File.ReadAllText(caCrtKey[0]));
-    var cert = X509Certificate2.CreateFromPemFile(caCrtKey[1], caCrtKey[2]);
+    var tempCaText = File.ReadAllText(caCrtKey[0]);
+    var tempCrtText = File.ReadAllText(caCrtKey[1]);
+    var tempKeyText = File.ReadAllText(caCrtKey[2]);
+    var tempCa = new X509Certificate2(X509Certificate2.CreateFromPem(tempCaText));
+    var tempCrt = X509Certificate2.CreateFromPem(tempCrtText, tempKeyText);
+    var ca = new X509Certificate2(tempCa.Export(X509ContentType.Pkcs12));
+    var cert = new X509Certificate2(tempCrt.Export(X509ContentType.Pkcs12));
     optionsBuilder = optionsBuilder
         .WithTls(
             new MqttClientOptionsBuilderTlsParameters
@@ -75,7 +80,7 @@ else if (authType == "cert")
                 ApplicationProtocols = new List<SslApplicationProtocol> { new("mqtt") },
                 Certificates = new X509Certificate[] 
                 {
-                    caCert,
+                    ca,
                     cert
                 },
             }
